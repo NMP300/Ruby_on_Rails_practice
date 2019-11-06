@@ -11,5 +11,10 @@
 
   <body>
     <%= yield %>
+
+    <footer>
+      <%= link_to('日本語', :locale => 'ja') %>
+      <%= link_to('English', :locale => 'en') %>
+    </footer>
   </body>
 </html>
