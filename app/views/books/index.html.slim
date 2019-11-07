@@ -3,8 +3,9 @@ p#notice
 
 h1 = t'title.Books'
 
-table
-  thead
+.mb-3
+table.table.table-hover
+  thead.thead-default
     tr
       th = t'activerecord.attributes.book.title'
       th = t'activerecord.attributes.book.memo'
@@ -23,4 +24,4 @@ table
         td = link_to "#{t'link.Edit'}", edit_book_path(book)
         td = link_to "#{t'link.Destroy'}", book, method: :delete, data: { confirm: "#{t 'helpers.submit.Are_You_Sure'}" }
 
-= link_to "#{t'link.New_Book'}", new_book_path
+= link_to "#{t'link.New_Book'}", new_book_path, class: 'btn btn-primary mr-3'
