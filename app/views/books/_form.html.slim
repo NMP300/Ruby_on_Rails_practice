@@ -7,21 +7,22 @@
         - book.errors.full_messages.each do |message|
           li = message
 
-  .field
+
+  .form-group
     = form.label :title
-    = form.text_field :title
+    = form.text_field :title, class: 'form-control'
 
-  .field
+  .form-group
     = form.label :memo
-    = form.text_area :memo
+    = form.text_area :memo, class: 'form-control'
 
-  .field
-  = form.label :author
-  = form.text_field :author
+  .form-group
+    = form.label :author
+    = form.text_field :author, class: 'form-control'
 
-  .field
+  .form-group
     = form.label :picture
     = form.file_field :picture
 
   .actions
-    = form.submit
+    = form.submit nil, class: 'btn btn-primary mr-3'
