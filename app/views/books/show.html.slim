@@ -1,0 +1,22 @@
+p#notice
+  = notice
+
+p
+  strong Title:
+  = @book.title
+
+p
+  strong Memo:
+  = @book.memo
+
+p
+  strong Author:
+  = @book.author
+
+p
+  strong Picture:
+  = image_tag(@book.picture_url) if @book.picture.present?
+
+= link_to "#{t'link.Edit'}", edit_book_path(@book)
+'|
+= link_to "#{t'link.Back'}", books_path
