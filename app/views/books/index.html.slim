@@ -1,0 +1,26 @@
+p#notice
+  = notice
+
+h1 = t'title.Books'
+
+table
+  thead
+    tr
+      th = t'activerecord.attributes.book.title'
+      th = t'activerecord.attributes.book.memo'
+      th = t'activerecord.attributes.book.author'
+      th = t'activerecord.attributes.book.picture'
+      th colspan='3'
+
+  tbody
+    - @books.each do |book|
+      tr
+        td = book.title
+        td = book.memo
+        td = book.author
+        td = book.picture
+        td = link_to "#{t'link.Show'}", book
+        td = link_to "#{t'link.Edit'}", edit_book_path(book)
+        td = link_to "#{t'link.Destroy'}", book, method: :delete, data: { confirm: "#{t 'helpers.submit.Are_You_Sure'}" }
+
+= link_to "#{t'link.New_Book'}", new_book_path
