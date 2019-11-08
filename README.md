@@ -1,24 +1,13 @@
-# README
+# Book management application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Summary
+This repository is submission of the FJORD BOOT CAMP's "Understanding Rails" practice.
 
-Things you may want to cover:
+This app was created based on [Rails textbooks](http://igarashikuniaki.net/rails_textbook/).
 
-* Ruby version
+I will add multiple functions from now on(2019/11/4).
 
-* System dependencies
+## version
+Ruby 2.6.3
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Ruby on Rails 6.0
