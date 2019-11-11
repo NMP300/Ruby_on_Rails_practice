@@ -1,0 +1,6 @@
+h1 = t'title.New_Book'
+
+= render 'form', book: @book
+
+.nav.justify-content-end
+  = link_to "#{t'link.Back'}", books_path
