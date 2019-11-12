@@ -15,7 +15,8 @@ module BooksApp
 
     config.time_zone = "Tokyo"
 
-    config.i18n.load_path += Dir[Rails.root.join("my", "locales", "*.{rb,yml}")]
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
+    config.i18n.available_locales = [:ja, :en]
     config.i18n.default_locale = :ja
 
     config.generators.template_engine = :slim
