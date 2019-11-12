@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
-describe 'ページネーション表示機能', type: :system do
+describe "ページネーション表示機能", type: :system do
   it "ページネーションが表示される" do
     50.times { FactoryBot.create(:book) }
     visit "/books"
-    expect(page).to have_content '次'
+    expect(page).to have_content "次"
   end
 end
