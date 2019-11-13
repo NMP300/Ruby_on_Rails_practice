@@ -25,3 +25,7 @@ table.table.table-hover
         td = link_to "#{t'link.Destroy'}", book, method: :delete, data: { confirm: "#{t 'helpers.submit.Are_You_Sure'}" }
 
 = link_to "#{t'link.New_Book'}", new_book_path, class: 'btn btn-primary mr-3'
+
+.mt-3
+  = paginate @books
+  = page_entries_info @books
