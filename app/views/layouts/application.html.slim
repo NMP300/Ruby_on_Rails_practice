@@ -9,6 +9,11 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .container
+      p.notice
+        = notice
+      p.alert
+        = alert
+
       = yield
       footer
         .nav.justify-content-end

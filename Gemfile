@@ -66,3 +66,5 @@ gem "html2slim"
 gem "bootstrap"
 
 gem "kaminari"
+
+gem "devise"
