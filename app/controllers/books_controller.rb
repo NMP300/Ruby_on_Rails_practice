@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.order(:title).page params[:page]
+    @books = current_user.books.page params[:page]
   end
 
   # GET /books/new
@@ -15,9 +15,8 @@ class BooksController < ApplicationController
   end
 
   # POST /books
-  # POST /books.json
   def create
-    @book = Book.new(book_params)
+    @book = Book.new(book_params.merge(user_id: current_user.id))
 
     if @book.save
       redirect_to @book, notice: "#{t 'errors.messages.Book_was_successfully_created.'}"
@@ -27,7 +26,6 @@ class BooksController < ApplicationController
   end
 
   # PATCH/PUT /books/1
-  # PATCH/PUT /books/1.json
   def update
     if @book.update(book_params)
       redirect_to @book, notice: "#{t 'errors.messages.Book_was_successfully_updated.'}"
@@ -37,7 +35,6 @@ class BooksController < ApplicationController
   end
 
   # DELETE /books/1
-  # DELETE /books/1.json
   def destroy
     @book.destroy
     redirect_to books_url, notice: "#{t 'errors.messages.Book_was_successfully_destroyed.'}"
@@ -46,7 +43,7 @@ class BooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
-      @book = Book.find(params[:id])
+      @book = current_user.books.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
