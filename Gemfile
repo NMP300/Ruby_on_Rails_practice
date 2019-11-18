@@ -68,3 +68,4 @@ gem "bootstrap"
 gem "kaminari"
 
 gem "devise"
+gem "devise-i18n"

@@ -1,16 +1,21 @@
-h1 プロフィール
+h1 = t('title.profile')
 
 p
-  |名前: #{@user.name}
+  = t('activerecord.attributes.users.name')
+  ': #{@user.name}
 
 p
-  |メールアドレス: #{@user.email}
+  = t('activerecord.attributes.users.mail')
+  ': #{@user.email}
 
 p
-  |郵便番号: #{@user.postal_code}
+  = t('activerecord.attributes.users.postal_code')
+  ': #{@user.postal_code}
 
 p
-  |住所: #{@user.address}
+  = t('activerecord.attributes.users.address')
+  ': #{@user.address}
 
 p
-  |プロフィール: #{@user.profile}
+  = t('activerecord.attributes.users.profile')
+  ': #{@user.profile}
