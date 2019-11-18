@@ -1,6 +1,12 @@
 h1 = t('title.all_users')
 
-ul.users
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th = t('activerecord.attributes.users.name')
+
+  tbody
   - @users.each do |user|
-    li
-      = link_to user.name, user
+    tr
+      td = link_to user.name, user

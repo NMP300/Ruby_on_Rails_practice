@@ -24,6 +24,7 @@ en:
         postal_code: Postal Code
         address: Address
         profile: Profile
+        password: password
   date:
     abbr_day_names:
       - Sun
@@ -250,7 +251,8 @@ en:
     books: Book
     new_book: New Book
     editing_book: Editing Book
-    all_users: All users
+    all_users: All Users
     profile: Profile
+    edit_profile: Edit Profile
   header:
     logged_in_as: "Logged in as %{user}"
