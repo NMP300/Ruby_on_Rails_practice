@@ -250,6 +250,7 @@ en:
   title:
     books: Book
     new_book: New Book
+    books_detail: Books detail
     editing_book: Editing Book
     all_users: All Users
     profile: Profile

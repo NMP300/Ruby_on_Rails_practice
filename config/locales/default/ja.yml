@@ -242,6 +242,7 @@ ja:
   title:
     books: 書籍一覧
     new_book: 新規登録
+    books_detail: 書籍情報
     editing_book: 書籍情報の編集
     all_users: ユーザー一覧
     profile: プロフィール
