@@ -24,6 +24,10 @@ h2
     = f.text_area :address, autofocus: true, class: "form-control"
 
     .form-group
+      = f.label :profile
+      = f.text_area :profile, class: 'form-control'
+
+    .form-group
     = f.label :password
     - if @minimum_password_length
       em

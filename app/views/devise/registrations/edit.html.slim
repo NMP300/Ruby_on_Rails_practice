@@ -24,13 +24,17 @@ h2
     = f.text_area :address, class: 'form-control'
 
   .form-group
+    = f.label :profile
+    = f.text_area :profile, class: 'form-control'
+
+  .form-group
     = f.label :password
     i
       | (
       = t('.leave_blank_if_you_don_t_want_to_change_it')
       | )
     br
-    = f.password_field :password, autocomplete: "new-password", class: "form-control"
+    = f.password_field :password, autocomplete: "new-password"
     - if @minimum_password_length
       br
       em
