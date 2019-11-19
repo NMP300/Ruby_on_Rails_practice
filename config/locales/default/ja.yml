@@ -158,7 +158,7 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
-      Are_You_Sure: よろしいですか
+      are_you_sure: よろしいですか
   number:
     currency:
       format:
@@ -220,13 +220,13 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   link:
-    New_Book: 新規登録
-    Show: 詳細
-    Edit: 編集
-    Destroy: 削除
-    Back: 戻る
+    new_book: 新規登録
+    show: 詳細
+    edit: 編集
+    destroy: 削除
+    back: 戻る
   title:
-    Books: 書籍一覧
-    New_Book: 新規登録
+    books: 書籍一覧
+    new_book: 新規登録
     books_detail: 書籍情報
-    Editing_Book: 書籍情報の編集
+    editing_book: 書籍情報の編集

@@ -153,7 +153,7 @@ en:
       create: Create %{model}
       submit: Save %{model}
       update: Update %{model}
-      Are_You_Sure: Are You Sure
+      are_you_sure: Are You Sure
   number:
     currency:
       format:
@@ -217,13 +217,13 @@ en:
       short: "%d %b %H:%M"
     pm: pm
   link:
-    New_Book: New Book
-    Show: Show
-    Edit: Edit
-    Destroy: Destroy
-    Back: Back
+    new_book: New Book
+    show: Show
+    edit: Edit
+    destroy: Destroy
+    back: Back
   title:
-    Books: Book
-    New_Book: New Book
+    books: Book
+    new_book: New Book
     books_detail: Books Detail
-    Editing_Book: Editing Book
+    editing_book: Editing Book

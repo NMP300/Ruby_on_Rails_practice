@@ -1,7 +1,7 @@
 p#notice
   = notice
 
-h1 = t'title.Books'
+h1 = t'title.books'
 
 .mb-3
 table.table.table-hover
@@ -20,11 +20,11 @@ table.table.table-hover
         td = book.memo
         td = book.author
         td = book.picture
-        td = link_to "#{t'link.Show'}", book
-        td = link_to "#{t'link.Edit'}", edit_book_path(book)
-        td = link_to "#{t'link.Destroy'}", book, method: :delete, data: { confirm: "#{t 'helpers.submit.Are_You_Sure'}" }
+        td = link_to "#{t'link.show'}", book
+        td = link_to "#{t'link.edit'}", edit_book_path(book)
+        td = link_to "#{t'link.destroy'}", book, method: :delete, data: { confirm: "#{t 'helpers.submit.are_you_sure'}" }
 
-= link_to "#{t'link.New_Book'}", new_book_path, class: 'btn btn-primary mr-3'
+= link_to "#{t'link.new_book'}", new_book_path, class: 'btn btn-primary mr-3'
 
 .mt-3
   = paginate @books
