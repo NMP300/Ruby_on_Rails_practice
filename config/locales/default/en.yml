@@ -6,6 +6,25 @@ en:
         restrict_dependent_destroy:
           has_one: Cannot delete record because a dependent %{record} exists
           has_many: Cannot delete record because dependent %{record} exist
+    models:
+      book: Book
+    attributes:
+      book:
+        id: ID
+        title: Title
+        memo: Memo
+        author: Author
+        picture: Picture
+        created_at: Created at
+        updated_at: Updated at
+      users:
+        id: ID
+        name: Name
+        email: Email
+        postal_code: Postal Code
+        address: Address
+        profile: Profile
+        password: password
   date:
     abbr_day_names:
       - Sun
@@ -222,8 +241,19 @@ en:
     edit: Edit
     destroy: Destroy
     back: Back
+    users: Users
+    books: Books
+    edit_profile: Edit profile
+    logout: Logout
+    sign_up: Sign up
+    login: Login
   title:
     books: Book
     new_book: New Book
     books_detail: Books Detail
     editing_book: Editing Book
+    all_users: All Users
+    profile: Profile
+    edit_profile: Edit Profile
+  header:
+    logged_in_as: "Logged in as %{user}"

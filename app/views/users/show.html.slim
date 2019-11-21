@@ -1,0 +1,19 @@
+h1 = t('title.profile')
+
+table.table.table-hover
+  tbody
+    tr
+      th = t('activerecord.attributes.users.name')
+      td = @user.name
+    tr
+      th = t('activerecord.attributes.users.email')
+      td = @user.email
+    tr
+      th = t('activerecord.attributes.users.postal_code')
+      td = @user.postal_code
+    tr
+      th = t('activerecord.attributes.users.address')
+      td = @user.address
+    tr
+      th = t('activerecord.attributes.users.profile')
+      td = @user.profile
