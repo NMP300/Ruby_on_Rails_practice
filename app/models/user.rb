@@ -16,7 +16,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
-  # validates :postal_code, numericality: true
   validates :password, confirmation: true
 
   has_many :books
