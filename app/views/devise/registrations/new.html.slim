@@ -40,6 +40,11 @@ h2
     br
     = f.password_field :password_confirmation, autocomplete: "new-password"
 
+    .form-group
+      = f.label :avatar
+      br
+      = f.file_field :avatar
+
   .mt-3.mb-3.actions
     = f.submit t('.sign_up'), class: 'btn btn-primary mr-3'
 

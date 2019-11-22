@@ -4,11 +4,12 @@ h1 = t('title.all_users')
 table.table.table-hover
   thead.thead-default
     tr
+      th = "画像"
       th = t('activerecord.attributes.users.name')
-
   tbody
   - @users.each do |user|
     tr
+      td = form.file_field :avatar
       td = link_to user.name, user
 
 .mt-3

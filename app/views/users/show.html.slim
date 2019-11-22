@@ -3,6 +3,9 @@ h1 = t('title.profile')
 table.table.table-hover
   tbody
     tr
+      th = "画像"
+      td = @user.avatar
+    tr
       th = t('activerecord.attributes.users.name')
       td = @user.name
     tr
