@@ -27,6 +27,11 @@ h2
     = f.label :profile
     = f.text_area :profile, class: 'form-control'
 
+  .form-group
+    = f.label :icon
+    br
+    = f.file_field :icon
+
   .actions
     = f.submit t('.update'), class: 'btn btn-primary mr-3'
 

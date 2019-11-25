@@ -19,5 +19,5 @@ class User < ApplicationRecord
   validates :password, confirmation: true
 
   has_many :books
-  has_one_attached :avatar
+  has_one_attached :icon
 end
