@@ -40,5 +40,7 @@ h2
     br
     = f.password_field :password_confirmation, autocomplete: "new-password"
 
-  .mt-3.actions
+  .mt-3.mb-3.actions
     = f.submit t('.sign_up'), class: 'btn btn-primary mr-3'
+
+= render "devise/shared/links"
