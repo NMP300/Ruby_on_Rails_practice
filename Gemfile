@@ -72,3 +72,5 @@ gem "devise-i18n"
 
 gem "omniauth"
 gem "omniauth-github"
+
+gem "dotenv-rails"
