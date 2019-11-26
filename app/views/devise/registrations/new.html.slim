@@ -24,11 +24,11 @@ h2
     = f.text_area :address, autofocus: true, class: "form-control"
 
     .form-group
-      = f.label :profile
+      = f.label :"#{t('activerecord.attributes.users.profile')}"
       = f.text_area :profile, class: 'form-control'
 
     .form-group
-    = f.label :password
+    = f.label :"#{t('activerecord.attributes.users.password')}"
     - if @minimum_password_length
       em
         = t('devise.shared.minimum_password_length', count: @minimum_password_length)
