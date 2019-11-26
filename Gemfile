@@ -76,3 +76,5 @@ gem "omniauth"
 gem "omniauth-github"
 
 gem "dotenv-rails"
+
+gem "faker"
