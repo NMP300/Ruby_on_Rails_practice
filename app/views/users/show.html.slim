@@ -4,8 +4,7 @@ table.table.table-hover
   tbody
     tr
       th = t('activerecord.attributes.users.icon')
-      - if @user.icon.attached?
-        td = image_tag @user.icon.variant(resize: "100x100").processed
+      td = image_tag @user.icon.variant(resize: "100x100").processed if @user.icon.attached?
     tr
       th = t('activerecord.attributes.users.name')
       td = @user.name
