@@ -41,7 +41,7 @@ h2
     = f.password_field :password_confirmation, autocomplete: "new-password"
 
     .form-group
-      = f.label :"#{t('activerecord.attributes.users.icon')}"
+      = f.label t('activerecord.attributes.users.icon')
       br
       = f.file_field :icon
 
