@@ -4,11 +4,11 @@ h2
   = render "devise/shared/error_messages", resource: resource
 
   .form-group
-    = f.label :"#{t('activerecord.attributes.users.name')}"
+    = f.label t('activerecord.attributes.users.name')
     = f.text_field :name, class: 'form-control'
 
   .form-group
-    = f.label :"#{t('activerecord.attributes.users.email')}"
+    = f.label t('activerecord.attributes.users.email')
     br
     = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
@@ -16,15 +16,15 @@ h2
       = t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email)
 
   .form-group
-    = f.label :"#{t('activerecord.attributes.users.postal_code')}"
+    = f.label t('activerecord.attributes.users.postal_code')
     = f.text_field :postal_code, class: 'form-control'
 
   .form-group
-    = f.label :"#{t('activerecord.attributes.users.address')}"
+    = f.label t('activerecord.attributes.users.address')
     = f.text_area :address, class: 'form-control'
 
   .form-group
-    = f.label :"#{t('activerecord.attributes.users.profile')}"
+    = f.label t('activerecord.attributes.users.profile')
     = f.text_area :profile, class: 'form-control'
 
   .actions

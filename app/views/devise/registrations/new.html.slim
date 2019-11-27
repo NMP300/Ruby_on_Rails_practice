@@ -4,31 +4,31 @@ h2
   = render "devise/shared/error_messages", resource: resource
 
   .form-group
-    = f.label :"#{t('activerecord.attributes.users.name')}"
+    = f.label t('activerecord.attributes.users.name')
     br
     = f.text_field :name, autofocus: true, class: "form-control"
 
   .form-group
-    = f.label :"#{t('activerecord.attributes.users.email')}"
+    = f.label t('activerecord.attributes.users.email')
     br
     = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
 
     .form-group
-    = f.label :"#{t('activerecord.attributes.users.postal_code')}"
+    = f.label t('activerecord.attributes.users.postal_code')
     br
     = f.text_field :postal_code, autofocus: true, class: "form-control"
 
     .form-group
-    = f.label :"#{t('activerecord.attributes.users.address')}"
+    = f.label t('activerecord.attributes.users.address')
     br
     = f.text_area :address, autofocus: true, class: "form-control"
 
     .form-group
-      = f.label :"#{t('activerecord.attributes.users.profile')}"
+      = f.label t('activerecord.attributes.users.profile')
       = f.text_area :profile, class: 'form-control'
 
     .form-group
-    = f.label :"#{t('activerecord.attributes.users.password')}"
+    = f.label t('activerecord.attributes.users.password')
     - if @minimum_password_length
       em
         = t('devise.shared.minimum_password_length', count: @minimum_password_length)
