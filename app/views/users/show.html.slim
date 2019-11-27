@@ -20,3 +20,11 @@ table.table.table-hover
     tr
       th = User.human_attribute_name(:profile)
       td = @user.profile
+    tr
+      th = "following"
+      td = link_to "#{@user.following.count}", following_user_path(@user)
+    tr
+      th = "followers"
+      td = link_to "#{@user.followers.count}", followers_user_path(@user)
+    tr
+      th = render 'follow_form'
