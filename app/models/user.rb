@@ -30,7 +30,9 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :password, confirmation: true
 
-  has_many :books
+  has_many :books,
+           foreign_key: "user_id",
+           dependent: :destroy
   has_one_attached :icon
   has_many :active_relationships, class_name: "Relationship",
            foreign_key: "follower_id",
