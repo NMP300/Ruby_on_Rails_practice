@@ -5,22 +5,18 @@ h2
 
   .form-group
     = f.label :name
-    br
     = f.text_field :name, autofocus: true, class: "form-control"
 
   .form-group
     = f.label :email
-    br
     = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
 
     .form-group
     = f.label :postal_code
-    br
     = f.text_field :postal_code, autofocus: true, class: "form-control"
 
     .form-group
     = f.label :address
-    br
     = f.text_area :address, autofocus: true, class: "form-control"
 
     .form-group
@@ -41,7 +37,7 @@ h2
     = f.password_field :password_confirmation, autocomplete: "new-password"
 
     .form-group
-      = f.label t('activerecord.attributes.users.icon')
+      = f.label :icon
       br
       = f.file_field :icon
 

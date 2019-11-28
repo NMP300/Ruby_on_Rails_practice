@@ -9,7 +9,6 @@ h2
 
   .form-group
     = f.label :email
-    br
     = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     div
@@ -28,7 +27,7 @@ h2
     = f.text_area :profile, class: 'form-control'
 
   .form-group
-    = f.label t('activerecord.attributes.users.icon')
+    = f.label :icon
     br
     = f.file_field :icon
 
