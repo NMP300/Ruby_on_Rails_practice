@@ -8,19 +8,19 @@
           li = message
 
   .form-group
-    = form.label :"#{t('activerecord.attributes.book.title')}"
+    = form.label :title
     = form.text_field :title, class: 'form-control'
 
   .form-group
-    = form.label :"#{t('activerecord.attributes.book.memo')}"
+    = form.label :memo
     = form.text_area :memo, class: 'form-control'
 
   .form-group
-    = form.label :"#{t('activerecord.attributes.book.author)}"
+    = form.label :author
     = form.text_field :author, class: 'form-control'
 
   .form-group
-    = form.label :"#{t('activerecord.attributes.book.picture')}"
+    = form.label :picture
     br
     = form.file_field :picture
 
