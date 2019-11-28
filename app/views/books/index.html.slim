@@ -14,7 +14,7 @@ table.table.table-hover
   tbody
     - @books.each do |book|
       tr
-        td = link_to book.user.name
+        td = link_to book.user.name ,user_path(book.user_id)
         td = book.title
         td = book.memo
         td = book.author

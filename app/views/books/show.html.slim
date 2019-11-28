@@ -6,6 +6,9 @@ h1 = t('title.books_detail')
 table.table.table-hover
   tbody
     tr
+      th = "投稿者"
+      td = link_to @book.user.name, user_path(@book.user_id)
+    tr
       th = Book.human_attribute_name(:title)
       td = @book.title
     tr
