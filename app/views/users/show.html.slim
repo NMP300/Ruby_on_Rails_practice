@@ -22,12 +22,13 @@ table.table.table-hover
       td = @user.profile
     tr
       th = "following"
-      td = link_to "#{@user.following.count}", following_user_path(@user)
+      td = link_to "#{@user.following.count}", following_index_path
     tr
       th = "followers"
-      td = link_to "#{@user.followers.count}", followers_user_path(@user)
+      td = link_to "#{@user.followers.count}", followers_path
+
     tr
-      th = render 'follow_form' if current_user.id != User.find(params[:id]).id
+      th = render 'shared/follow_form' if current_user.id != User.find(params[:id]).id
 
 .mb-3
 table.table.table-hover
