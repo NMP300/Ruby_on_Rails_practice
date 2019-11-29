@@ -4,8 +4,8 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @following_users = current_user.following
-    @books = Book.where(user_id: @following_users).order("created_at DESC").page params[:page]
+    following_users = current_user.following
+    @books = Book.where(user_id: following_users).or(Book.where(user_id: current_user)).order("created_at DESC").page params[:page]
   end
 
   def new

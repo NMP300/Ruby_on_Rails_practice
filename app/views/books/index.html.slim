@@ -16,10 +16,10 @@ table.table.table-hover
       tr
         td = link_to book.user.name ,user_path(book.user_id)
         td = book.title
-        td = book.memo
         td = book.author
         td = book.picture
         td = link_to t('link.show'), book
+
       - if current_user.id == book.user_id
         td = link_to t('link.edit'), edit_book_path(book)
         td = link_to t('link.destroy'), book, method: :delete, data: {confirm: t('helpers.submit.are_you_sure')}
