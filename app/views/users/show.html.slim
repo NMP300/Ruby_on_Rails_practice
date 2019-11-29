@@ -21,13 +21,14 @@ table.table.table-hover
       th = User.human_attribute_name(:profile)
       td = @user.profile
     tr
-      th = "following"
+      th = t('activerecord.attributes.follows.following')
       td = link_to "#{@user.following.count}", following_index_path
     tr
-      th = "followers"
+      th = t('activerecord.attributes.follows.followers')
       td = link_to "#{@user.followers.count}", followers_path
-    tr
-      th = render 'shared/follow_form' if current_user.id != User.find(params[:id]).id
+
+- if current_user.id != User.find(params[:id]).id
+  p = render 'shared/follow_form'
 
 = render "shared/books_list", books: @books
 

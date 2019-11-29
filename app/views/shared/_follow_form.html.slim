@@ -1,5 +1,5 @@
 #follow_form
   - if current_user.following?(@user)
-    = render 'shared/unfollow'
+    = render 'shared/unfollow_button'
   - else
-    = render 'shared/follow'
+    = render 'shared/follow_button'

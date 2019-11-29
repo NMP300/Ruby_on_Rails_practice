@@ -4,11 +4,11 @@ h1 = t 'title.timeline'
 table.table.table-hover
   thead.thead-default
     tr
-      th = "投稿者"
+      th = t('activerecord.attributes.book.created_user')
       th = t 'activerecord.attributes.book.title'
       th = t 'activerecord.attributes.book.author'
       th = t 'activerecord.attributes.book.picture'
-      th colspan='5'
+      th colspan='4'
 
   tbody
     - books.each do |book|

@@ -18,9 +18,9 @@ html
         - if user_signed_in?
           = t('header.logged_in_as', user: current_user.name)
           '|
-          = link_to "タイムライン", books_path, class: 'navbar-link'
+          = link_to t('link.timeline'), books_path, class: 'navbar-link'
           '|
-          = link_to "マイページ", current_user, class: 'navbar-link'
+          = link_to t('link.mypage'), current_user, class: 'navbar-link'
           '|
           = link_to t('link.users'), users_path, class: 'navbar-link'
           '|

@@ -11,6 +11,7 @@ ja:
     attributes:
       book:
         id: ID
+        created_user: 投稿者
         title: タイトル
         memo: メモ
         author: 作者
@@ -26,6 +27,9 @@ ja:
         address: 住所
         profile: プロフィール
         password: パスワード
+      follows:
+        following: フォロー
+        followers: フォロワー
   date:
     abbr_day_names:
       - 日
@@ -229,6 +233,8 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   link:
+    timeline: タイムライン
+    mypage: マイページ
     new_book: 新規登録
     show: 詳細
     edit: 編集
@@ -241,6 +247,7 @@ ja:
     sign_up: アカウント登録
     login: ログイン
   title:
+    timeline: タイムライン
     books: 書籍一覧
     new_book: 新規登録
     books_detail: 書籍情報
@@ -248,5 +255,8 @@ ja:
     all_users: ユーザー一覧
     profile: プロフィール
     edit_profile: プロフィール編集
+  button:
+    follow: フォロー
+    unfollow: フォロー解除
   header:
     logged_in_as: "%{user}としてログインしています"

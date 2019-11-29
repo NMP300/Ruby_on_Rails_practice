@@ -11,6 +11,7 @@ en:
     attributes:
       book:
         id: ID
+        created_user: Create User
         title: Title
         memo: Memo
         author: Author
@@ -26,6 +27,9 @@ en:
         address: Address
         profile: Profile
         password: password
+      follows:
+        following: Following
+        followers: Followers
   date:
     abbr_day_names:
       - Sun
@@ -237,6 +241,8 @@ en:
       short: "%d %b %H:%M"
     pm: pm
   link:
+    timeline: Timeline
+    mypage: Mypage
     new_book: New Book
     show: Show
     edit: Edit
@@ -249,6 +255,7 @@ en:
     sign_up: Sign up
     login: Login
   title:
+    timeline: Timeline
     books: Book
     new_book: New Book
     books_detail: Books Detail
@@ -256,5 +263,8 @@ en:
     all_users: All Users
     profile: Profile
     edit_profile: Edit Profile
+  button:
+    follow: Follow
+    unfollow: Unfollow
   header:
     logged_in_as: "Logged in as %{user}"
