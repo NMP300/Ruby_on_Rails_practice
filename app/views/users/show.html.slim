@@ -27,7 +27,7 @@ table.table.table-hover
       th = "followers"
       td = link_to "#{@user.followers.count}", followers_user_path(@user)
     tr
-      th = render 'follow_form'
+      th = render 'follow_form' if current_user.id != User.find(params[:id]).id
 
 .mb-3
 table.table.table-hover
@@ -46,3 +46,10 @@ table.table.table-hover
         td = book.memo
         td = book.author
         td = book.picture
+        td = link_to "#{t 'link.show'}", book
+
+        - if current_user.id == book.user_id
+          td = link_to "#{t 'link.edit'}", edit_book_path(book)
+          td = link_to "#{t 'link.destroy'}", book, method: :delete, data: {confirm: "#{t 'helpers.submit.are_you_sure'}"}
+
+    = link_to "#{t 'link.new_book'}", new_book_path, class: 'btn btn-primary mb-3'
