@@ -17,7 +17,7 @@ en:
         picture: Picture
         created_at: Created at
         updated_at: Updated at
-      users:
+      user:
         id: ID
         name: Name
         email: Email
