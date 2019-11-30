@@ -23,7 +23,6 @@ table.table.table-hover
           td = link_to "#{t 'link.edit'}", edit_book_path(book)
           td = link_to "#{t 'link.destroy'}", book, method: :delete, data: {confirm: "#{t 'helpers.submit.are_you_sure'}"}
 
-
 .mt-3
   = paginate books
   = page_entries_info books
