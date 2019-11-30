@@ -19,6 +19,7 @@ ja:
         updated_at: 更新日時
       user:
         id: ID
+        icon: アイコン
         name: 名前
         email: メールアドレス
         postal_code: 郵便番号

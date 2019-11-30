@@ -3,6 +3,9 @@ h1 = t('title.profile')
 table.table.table-hover
   tbody
     tr
+      th = t('activerecord.attributes.user.icon')
+      td = image_tag @user.icon.variant(resize: "100x100").processed if @user.icon.attached?
+    tr
       th = t('activerecord.attributes.user.name')
       td = @user.name
     tr

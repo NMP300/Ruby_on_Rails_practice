@@ -19,6 +19,7 @@ en:
         updated_at: Updated at
       user:
         id: ID
+        icon: Icon
         name: Name
         email: Email
         postal_code: Postal Code

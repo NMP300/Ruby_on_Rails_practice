@@ -4,11 +4,12 @@ h1 = t('title.all_users')
 table.table.table-hover
   thead.thead-default
     tr
+      th = t('activerecord.attributes.user.icon')
       th = t('activerecord.attributes.user.name')
-
   tbody
   - @users.each do |user|
     tr
+      td = image_tag user.icon.variant(resize: "100x100").processed if user.icon.attached?
       td = link_to user.name, user
 
 .mt-3
