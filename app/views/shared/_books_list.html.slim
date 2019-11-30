@@ -18,10 +18,9 @@ table.table.table-hover
         td = book.author
         td = book.picture
         td = link_to "#{t 'link.show'}", book
-
-        - if current_user.id == book.user_id
-          td = link_to "#{t 'link.edit'}", edit_book_path(book)
-          td = link_to "#{t 'link.destroy'}", book, method: :delete, data: {confirm: "#{t 'helpers.submit.are_you_sure'}"}
+        / 改善点：同じif文を2回使っている
+        td = link_to "#{t 'link.edit'}", edit_book_path(book) if current_user.id == book.user_id
+        td = link_to "#{t 'link.destroy'}", book, method: :delete, data: {confirm: "#{t 'helpers.submit.are_you_sure'}"} if current_user.id == book.user_id
 
 .mt-3
   = paginate books
