@@ -11,35 +11,35 @@ h2
     = f.label :email
     = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
 
-    .form-group
+  .form-group
     = f.label :postal_code
     = f.text_field :postal_code, autofocus: true, class: "form-control"
 
-    .form-group
+  .form-group
     = f.label :address
     = f.text_area :address, autofocus: true, class: "form-control"
 
-    .form-group
-      = f.label :profile
-      = f.text_area :profile, class: 'form-control'
+  .form-group
+    = f.label :profile
+    = f.text_area :profile, class: 'form-control'
 
-    .form-group
+  .form-group
     = f.label :password
     - if @minimum_password_length
       em
         = t('devise.shared.minimum_password_length', count: @minimum_password_length)
-    br
+    div
     = f.password_field :password, autocomplete: "new-password"
 
-    .form-group
+  .form-group
     = f.label :password_confirmation
-    br
+    div
     = f.password_field :password_confirmation, autocomplete: "new-password"
 
-    .form-group
-      = f.label :icon
-      br
-      = f.file_field :icon
+  .form-group
+    = f.label :icon
+    div
+    = f.file_field :icon
 
   .mt-3.mb-3.actions
     = f.submit t('.sign_up'), class: 'btn btn-primary mr-3'
