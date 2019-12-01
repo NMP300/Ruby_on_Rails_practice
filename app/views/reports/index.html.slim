@@ -1,23 +1,26 @@
-h1 Listing reports
+h1 = t('title.reports')
 
-table
-  thead
+.mb-3
+table.table.table-hover
+  thead.thead-default
     tr
-      th Title
-      th Text
-      th
-      th
-      th
+      th = t 'activerecord.attributes.report.created_user'
+      th = t 'activerecord.attributes.report.title'
+      th colspan='3'
 
   tbody
     - @reports.each do |report|
       tr
+        td = link_to report.user.name ,user_path(report.user_id)
         td = report.title
-        td = report.text
-        td = link_to 'Show', report
-        td = link_to 'Edit', edit_report_path(report)
-        td = link_to 'Destroy', report, data: {confirm: 'Are you sure?'}, method: :delete
+        td = link_to "#{t 'link.show'}", report
+        / 改善点：同じif文を2回使っている
+        td = link_to "#{t 'link.edit'}", edit_report_path(report) if current_user.id == report.user_id
+        td = link_to "#{t 'link.destroy'}", report, method: :delete, data: {confirm: "#{t 'helpers.submit.are_you_sure'}"} if current_user.id == report.user_id
 
-br
+.mt-3
+  = paginate @reports
+  = page_entries_info @reports
 
-= link_to 'New Report', new_report_path
+.mt-5
+  = link_to "#{t 'link.new_report'}", new_report_path, class: 'btn btn-primary mr-3'

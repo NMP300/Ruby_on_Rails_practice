@@ -1,12 +1,25 @@
-p#notice = notice
+p#notice
+  = notice
 
-p
-  strong Title:
-  = @report.title
-p
-  strong Text:
-  = @report.text
+h1 = "日報詳細"
 
-=> link_to 'Edit', edit_report_path(@report)
-'|
-=< link_to 'Back', reports_path
+table.table.table-hover
+  tbody
+    tr
+      th = t('activerecord.attributes.book.created_user')
+      td = link_to @report.user.name, user_path(@report.user_id)
+    tr
+      th = t('activerecord.attributes.book.title')
+      td = @report.title
+    tr
+      th = "テキスト"
+      td = @report.text
+    tr
+      th = t('activerecord.attributes.book.picture')
+      td
+        - @report.pictures.each do |picture|
+          = image_tag picture if @report.pictures.attached?
+
+= link_to "#{t 'link.edit'}", edit_report_path(@report), class: 'btn btn-primary mr-3'
+
+= link_to "#{t 'link.back'}", reports_path, class: 'btn btn-primary mr-3'
