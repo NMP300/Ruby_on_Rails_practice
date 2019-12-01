@@ -9,12 +9,10 @@ class BooksController < ApplicationController
     @books = current_user.books.page params[:page]
   end
 
-  # GET /books/new
   def new
     @book = Book.new
   end
 
-  # POST /books
   def create
     @book = Book.new(book_params.merge(user_id: current_user.id))
 
@@ -25,7 +23,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /books/1
   def update
     if @book.update(book_params)
       redirect_to @book, notice: "#{t 'errors.messages.Book_was_successfully_updated.'}"
@@ -34,7 +31,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # DELETE /books/1
   def destroy
     @book.destroy
     redirect_to books_url, notice: "#{t 'errors.messages.Book_was_successfully_destroyed.'}"
