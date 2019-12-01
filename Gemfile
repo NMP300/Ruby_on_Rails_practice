@@ -74,3 +74,6 @@ gem "omniauth"
 gem "omniauth-github"
 
 gem "dotenv-rails"
+
+gem "ruby-debug-ide"
+gem "debase"
