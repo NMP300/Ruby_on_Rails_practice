@@ -50,4 +50,8 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:title, :memo, :author, :picture, :user_id)
     end
+
+    def created_user?
+      current_user.id == @book.user_id
+    end
 end
