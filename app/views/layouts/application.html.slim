@@ -9,8 +9,6 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .container
-      p.notice
-        = notice
       p.alert
         = alert
 
@@ -18,9 +16,9 @@ html
         - if user_signed_in?
           = t('header.logged_in_as', user: current_user.name)
           '|
-          = link_to "書籍一覧", books_path, class: 'navbar-link'
+          = link_to t('link.books'), books_path, class: 'navbar-link'
           '|
-          = link_to "日報一覧", reports_path, class: 'navbar-link'
+          = link_to t('link.reports'), reports_path, class: 'navbar-link'
           '|
           = link_to t('link.mypage'), current_user, class: 'navbar-link'
           '|

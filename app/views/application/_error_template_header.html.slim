@@ -1,0 +1,7 @@
+- if model.errors.any?
+  div#error_explanation
+    h2 = t "activerecord.errors.template.header.other", :model => model.class, :count => model.errors.count
+
+    ul
+      - model.errors.full_messages.each do |message|
+        li = message

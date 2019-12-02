@@ -2,8 +2,8 @@
 table.table.table-hover
   thead.thead-default
     tr
-      th = "投稿者"
-      th = "コメント"
+      th = Comment.human_attribute_name(:posted_user)
+      th = Comment.human_attribute_name(:comment)
       th colspan='2'
   tbody
     - unless comments.nil?
@@ -11,5 +11,5 @@ table.table.table-hover
         tr
           td = link_to comment.user.name, user_path
           td = comment.text
-          td = link_to "編集", edit_comment_path(comment) if current_user == comment.user
-          td = link_to "削除", comment, method: :delete, data: {confirm: "#{t 'helpers.submit.are_you_sure'}"} if current_user == comment.user
+          td = link_to t("link.edit"), edit_comment_path(comment) if current_user == comment.user
+          td = link_to t("link.destroy"), comment, method: :delete, data: {confirm: t('helpers.submit.are_you_sure')} if current_user == comment.user

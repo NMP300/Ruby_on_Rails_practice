@@ -39,10 +39,10 @@ table.table.table-hover
 table.table.table-hover
   thead.thead-default
     tr
-      th = "カテゴリー"
-      th = "投稿者"
-      th = "タイトル"
-      th colspan='3'
+      th = t('activerecord.attributes.post.category')
+      th = t('activerecord.attributes.book.created_user')
+      th = t('activerecord.attributes.post.title')
+      th colspan='4'
 
   tbody
     - @posts.each do |post|

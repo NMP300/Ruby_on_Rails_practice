@@ -1,11 +1,6 @@
 = form_with(model: @report, local: true) do |form|
-  - if @report.errors.any?
-    div#error_explanation
-      h2 = t "activerecord.errors.template.header.other", :model => Report.model_name.human, :count => @account.errors.count
 
-      ul
-        - @report.errors.full_messages.each do |message|
-          li = message
+  = render "error_template_header", model: @report
 
   .form-group
     = form.label :title

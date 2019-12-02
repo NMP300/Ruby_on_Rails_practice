@@ -1,21 +1,21 @@
 p#notice
   = notice
 
-h1 = "日報詳細"
+h1 = t('title.report_detail')
 
 table.table.table-hover
   tbody
     tr
-      th = t('activerecord.attributes.book.created_user')
+      th = t('activerecord.attributes.report.created_user')
       td = link_to @report.user.name, user_path(@report.user_id)
     tr
-      th = t('activerecord.attributes.book.title')
+      th = t('activerecord.attributes.report.title')
       td = @report.title
     tr
-      th = "テキスト"
+      th = t('activerecord.attributes.report.text')
       td = @report.text
     tr
-      th = t('activerecord.attributes.book.picture')
+      th = t('activerecord.attributes.report.pictures')
       td
         - @report.pictures.each do |picture|
           = image_tag picture if @report.pictures.attached?

@@ -1,7 +1,8 @@
 = form_with(model: [commentable, comment], local: true) do |form|
 
+  = render "error_template_header", model: comment
+
   .form-group
-    = form.label :text
     = form.text_area :text, class: 'form-control'
 
     = form.hidden_field :commentable_type, value: commentable.class
@@ -9,4 +10,4 @@
     = form.hidden_field :user_id, value: current_user.id
 
   .actions
-    = form.submit nil, class: 'btn btn-primary mr-3'
+    = form.submit t('activerecord.attributes.comment.post_comment'), class: 'btn btn-primary mr-3'

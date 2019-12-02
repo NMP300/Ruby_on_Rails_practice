@@ -8,7 +8,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_back(fallback_location: root_path)
+      redirect_to @comment.commentable
+      flash[:notice] = t('errors.messages.Comment_was_successfully_created.')
+    else
+      redirect_to @comment.commentable
+      flash[:notice] = t('errors.messages.Comment_was_failure_created.')
     end
   end
 
@@ -16,7 +20,11 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if created_user?
       if @comment.update(comment_params)
-        redirect_back(fallback_location: root_path)
+        redirect_to @comment.commentable
+        flash[:notice] = t('errors.messages.Comment_was_successfully_updated.')
+      else
+        render :edit
+        flash[:notice] = t('errors.messages.Comment_was_failure_updated.')
       end
     end
   end
@@ -25,7 +33,11 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if created_user?
       if @comment.destroy
-        redirect_back(fallback_location: root_path)
+        redirect_to @comment.commentable
+        flash[:notice] = t('errors.messages.Commnet_was_successfully_destroyed.')
+      else
+        redirect_to @comment.commentable
+        flash[:notice] = t('errors.messages.Comment_was_failure_destroyed.')
       end
     end
   end

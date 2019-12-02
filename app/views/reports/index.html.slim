@@ -4,8 +4,8 @@ h1 = t('title.reports')
 table.table.table-hover
   thead.thead-default
     tr
-      th = t 'activerecord.attributes.report.created_user'
-      th = t 'activerecord.attributes.report.title'
+      th = Report.human_attribute_name(:created_user)
+      th = Report.human_attribute_name(:title)
       th colspan='3'
 
   tbody
@@ -13,14 +13,14 @@ table.table.table-hover
       tr
         td = link_to report.user.name ,user_path(report.user_id)
         td = report.title
-        td = link_to "#{t 'link.show'}", report
+        td = link_to t('link.show'), report
         / 改善点：同じif文を2回使っている
-        td = link_to "#{t 'link.edit'}", edit_report_path(report) if current_user.id == report.user_id
-        td = link_to "#{t 'link.destroy'}", report, method: :delete, data: {confirm: "#{t 'helpers.submit.are_you_sure'}"} if current_user.id == report.user_id
+        td = link_to t('link.edit'), edit_report_path(report) if current_user == report.user
+        td = link_to t('link.destroy'), report, method: :delete, data: {confirm: t('helpers.submit.are_you_sure')} if current_user == report.user
 
 .mt-3
   = paginate @reports
   = page_entries_info @reports
 
 .mt-5
-  = link_to "#{t 'link.new_report'}", new_report_path, class: 'btn btn-primary mr-3'
+  = link_to t('link.new_report'), new_report_path, class: 'btn btn-primary mr-3'

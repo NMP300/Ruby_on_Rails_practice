@@ -8,6 +8,8 @@ en:
           has_many: Cannot delete record because dependent %{record} exist
     models:
       book: Book
+      report: report
+      comment: comment
     attributes:
       book:
         id: ID
@@ -29,6 +31,22 @@ en:
         password: password
         following: Following
         followers: Followers
+      report:
+        id: ID
+        title: Title
+        new_report: New Report
+        text: Text
+        pictures: Pictures
+        created_user: Created User
+      post:
+        category: Category
+        created_user: Created User
+        title: Title
+      comment:
+        comment: commnet
+        text: text
+        post_comment: comment
+        posted_user: Posted User
   date:
     abbr_day_names:
       - Sun
@@ -164,6 +182,15 @@ en:
       Book_was_successfully_created: Book was successfully created
       Book_was_successfully_updated: Book was successfully updated
       Book_was_successfully_destroyed: Book was successfully destroyed
+      Report_was_successfully_created: Report was successfully created
+      Report_was_successfully_updated: Report was successfully updated
+      Report_was_successfully_destroyed: Report was successfully destroyed
+      Comment_was_successfully_created: Comment was successfully created
+      Comment_was_successfully_updated: Comment was successfully updated
+      Commnet_was_successfully_destroyed: Comment was successfully destroyed
+      Comment_was_failure_created: Comment was failure created
+      Comment_was_failure_updated: Comment was failure updated
+      Comment_was_failure_destroyed: Comment was failure destroyed
     template:
       body: 'There were problems with the following fields:'
       header:
@@ -253,6 +280,8 @@ en:
     logout: Logout
     sign_up: Sign up
     login: Login
+    new_report: New Report
+    reports: Reports
   title:
     timeline: Timeline
     books: Book
@@ -262,6 +291,10 @@ en:
     all_users: All Users
     profile: Profile
     edit_profile: Edit Profile
+    report_detail: Report Detail
+    reports: Reports
+    new_report: New Report
+    posts: Posts
   button:
     follow: Follow
     unfollow: Unfollow
