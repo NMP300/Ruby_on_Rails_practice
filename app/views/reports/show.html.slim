@@ -23,3 +23,7 @@ table.table.table-hover
 = link_to "#{t 'link.edit'}", edit_report_path(@report), class: 'btn btn-primary mr-3'
 
 = link_to "#{t 'link.back'}", reports_path, class: 'btn btn-primary mr-3'
+
+= render "comments_list", comments: @report.comments
+
+= render "comment_form", commentable: @report, comment: Comment.new

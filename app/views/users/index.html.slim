@@ -1,5 +1,4 @@
 h1 = t('title.all_users')
-
 .mb-3
 table.table.table-hover
   thead.thead-default
@@ -11,7 +10,6 @@ table.table.table-hover
     tr
       td = image_tag user.icon.variant(resize: "100x100").processed if user.icon.attached?
       td = link_to user.name, user
-
 .mt-3
   = paginate @users
   = page_entries_info @users
