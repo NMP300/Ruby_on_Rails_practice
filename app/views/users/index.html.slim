@@ -4,8 +4,8 @@ h1 = t('title.all_users')
 table.table.table-hover
   thead.thead-default
     tr
-      th = t('activerecord.attributes.user.icon')
-      th = t('activerecord.attributes.user.name')
+      th = User.human_attribute_name(:icon)
+      th = User.human_attribute_name(:name)
   tbody
   - @users.each do |user|
     tr

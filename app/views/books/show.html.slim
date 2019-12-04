@@ -6,18 +6,18 @@ h1 = t('title.books_detail')
 table.table.table-hover
   tbody
     tr
-      th = t('activerecord.attributes.book.title')
+      th = Book.human_attribute_name(:title)
       td = @book.title
     tr
-      th = t('activerecord.attributes.book.memo')
+      th = Book.human_attribute_name(:memo)
       td = @book.memo
     tr
-      th = t('activerecord.attributes.book.author')
+      th = Book.human_attribute_name(:author)
       td = @book.author
     tr
-      th = t('activerecord.attributes.book.picture')
+      th = Book.human_attribute_name(:picture)
       td = image_tag(@book.picture_url) if @book.picture.present?
 
-= link_to "#{t'link.edit'}", edit_book_path(@book), class: 'btn btn-primary mr-3'
+= link_to t('link.edit'), edit_book_path(@book), class: 'btn btn-primary mr-3'
 
-= link_to "#{t'link.back'}", books_path, class: 'btn btn-primary mr-3'
+= link_to t('link.back'), books_path, class: 'btn btn-primary mr-3'

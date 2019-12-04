@@ -4,10 +4,10 @@ h1 = t'title.books'
 table.table.table-hover
   thead.thead-default
     tr
-      th = t'activerecord.attributes.book.title'
-      th = t'activerecord.attributes.book.memo'
-      th = t'activerecord.attributes.book.author'
-      th = t'activerecord.attributes.book.picture'
+      th = Book.human_attribute_name(:title)
+      th = Book.human_attribute_name(:memo)
+      th = Book.human_attribute_name(:author)
+      th = Book.human_attribute_name(:picture)
       th colspan='3'
 
   tbody
@@ -17,11 +17,11 @@ table.table.table-hover
         td = book.memo
         td = book.author
         td = book.picture
-        td = link_to "#{t'link.show'}", book
-        td = link_to "#{t'link.edit'}", edit_book_path(book)
-        td = link_to "#{t'link.destroy'}", book, method: :delete, data: { confirm: "#{t 'helpers.submit.are_you_sure'}" }
+        td = link_to t('link.show'), book
+        td = link_to t('link.edit'), edit_book_path(book)
+        td = link_to t('link.destroy'), book, method: :delete, data: {confirm: t('helpers.submit.are_you_sure')}
 
-= link_to "#{t'link.new_book'}", new_book_path, class: 'btn btn-primary mr-3'
+= link_to t('link.new_book'), new_book_path, class: 'btn btn-primary mr-3'
 
 .mt-3
   = paginate @books

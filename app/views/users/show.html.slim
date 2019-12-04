@@ -3,20 +3,20 @@ h1 = t('title.profile')
 table.table.table-hover
   tbody
     tr
-      th = t('activerecord.attributes.user.icon')
+      th = User.human_attribute_name(:icon)
       td = image_tag @user.icon.variant(resize: "100x100").processed if @user.icon.attached?
     tr
-      th = t('activerecord.attributes.user.name')
+      th = User.human_attribute_name(:name)
       td = @user.name
     tr
-      th = t('activerecord.attributes.user.email')
+      th = User.human_attribute_name(:email)
       td = @user.email
     tr
-      th = t('activerecord.attributes.user.postal_code')
+      th = User.human_attribute_name(:postal_code)
       td = @user.postal_code
     tr
-      th = t('activerecord.attributes.user.address')
+      th = User.human_attribute_name(:address)
       td = @user.address
     tr
-      th = t('activerecord.attributes.user.profile')
+      th = User.human_attribute_name(:profile)
       td = @user.profile
