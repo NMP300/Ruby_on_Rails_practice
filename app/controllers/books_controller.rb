@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   def index
     following_users = current_user.following
-    @books = Book.where(user_id: following_users).or(Book.where(user_id: current_user)).order("created_at DESC").page params[:page]
+    @books = Book.where(user_id: following_users).or(Book.where(user_id: current_user)).order(created_at: :desc).page params[:page]
   end
 
   def new

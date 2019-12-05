@@ -27,7 +27,6 @@ en:
         address: Address
         profile: Profile
         password: password
-      follows:
         following: Following
         followers: Followers
   date:

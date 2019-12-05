@@ -27,7 +27,6 @@ ja:
         address: 住所
         profile: プロフィール
         password: パスワード
-      follows:
         following: フォロー
         followers: フォロワー
   date:
