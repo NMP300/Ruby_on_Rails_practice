@@ -28,9 +28,9 @@ table.table.table-hover
       td = link_to @user.followers.count, followers_path
 
 - if current_user != User.find(params[:id])
-  p = render 'shared/follow_form'
+  p = render 'follow_form'
 
-= render "shared/books_list", books: @books
+= render "books_list", books: @books
 
 .mt-5
   - if current_user == @user
