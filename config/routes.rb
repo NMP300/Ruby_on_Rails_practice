@@ -11,7 +11,13 @@ Rails.application.routes.draw do
         registrations: "users/registrations",
         sessions: "users/sessions",
     }
-    resources :users, only: [:index, :show]
+    resources :users, only: [:index, :show] do
+      member do
+        resources :following, only: [:index]
+        resources :followers, only: [:index]
+      end
+    end
+    resources :follows, only: [:create, :destroy]
   end
   root to: "books#index"
 end

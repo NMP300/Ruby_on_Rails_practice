@@ -37,6 +37,7 @@ group :development, :test do
   gem "factory_bot_rails", "~> 4.11"
   gem "ruby-debug-ide"
   gem "debase"
+  gem "faker"
 end
 
 group :development do
@@ -47,6 +48,7 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "html2slim"
+  gem "dotenv-rails"
 end
 
 group :test do
@@ -74,5 +76,3 @@ gem "devise-i18n"
 
 gem "omniauth"
 gem "omniauth-github"
-
-gem "dotenv-rails"

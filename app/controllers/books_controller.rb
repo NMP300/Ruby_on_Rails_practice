@@ -4,7 +4,8 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = current_user.books.page params[:page]
+    following_users = current_user.following
+    @books = Book.where(user_id: following_users).or(Book.where(user_id: current_user)).order(created_at: :desc).page params[:page]
   end
 
   def new
@@ -37,11 +38,10 @@ class BooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
-      @book = current_user.books.find(params[:id])
+      @book = Book.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :memo, :author, :picture)
+      params.require(:book).permit(:title, :memo, :author, :picture, :user_id)
     end
 end

@@ -14,10 +14,32 @@ class User < ApplicationRecord
     end
   end
 
+  def follow(other_user)
+    following << other_user
+  end
+
+  def unfollow(other_user)
+    active_follows.find_by(followed_id: other_user.id).destroy
+  end
+
+  def following?(other_user)
+    following.include?(other_user)
+  end
+
   validates :name, presence: true
   validates :email, presence: true
   validates :password, confirmation: true
 
-  has_many :books
+  has_many :books,
+           foreign_key: "user_id",
+           dependent: :destroy
   has_one_attached :icon
+  has_many :active_follows, class_name: "Follow",
+           foreign_key: "follower_id",
+           dependent: :destroy
+  has_many :passive_follows, class_name: "Follow",
+           foreign_key: "followed_id",
+           dependent: :destroy
+  has_many :following, through: :active_follows, source: :followed
+  has_many :followers, through: :passive_follows, source: :follower
 end

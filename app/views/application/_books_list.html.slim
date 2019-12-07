@@ -1,0 +1,27 @@
+h1 = t 'title.timeline'
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th = Book.human_attribute_name(:created_user)
+      th = Book.human_attribute_name(:title)
+      th = Book.human_attribute_name(:author)
+      th = Book.human_attribute_name(:picture)
+      th colspan='4'
+
+  tbody
+    - books.each do |book|
+      tr
+        td = link_to book.user.name ,user_path(book.user_id)
+        td = book.title
+        td = book.author
+        td = book.picture
+        td = link_to t('link.show'), book
+        / 改善点：同じif文を2回使っている
+        td = link_to t('link.edit'), edit_book_path(book) if current_user == book.user
+        td = link_to t('link.destroy'), book, method: :delete, data: {confirm: t('helpers.submit.are_you_sure')} if current_user == book.user
+
+.mt-3
+  = paginate books
+  = page_entries_info books

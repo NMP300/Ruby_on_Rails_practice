@@ -20,3 +20,18 @@ table.table.table-hover
     tr
       th = User.human_attribute_name(:profile)
       td = @user.profile
+    tr
+      th = User.human_attribute_name(:following)
+      td = link_to @user.following.count, following_index_path
+    tr
+      th = User.human_attribute_name(:followers)
+      td = link_to @user.followers.count, followers_path
+
+- if current_user != User.find(params[:id])
+  p = render 'follow_form'
+
+= render "books_list", books: @books
+
+.mt-5
+  - if current_user == @user
+    = link_to t('link.new_book'), new_book_path, class: 'btn btn-primary mr-3'
