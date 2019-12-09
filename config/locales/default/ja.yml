@@ -286,6 +286,7 @@ ja:
     report_detail: 日報詳細
     reports: 日報一覧
     new_report: 日報新規登録
+    edit_report: 日報編集
     posts: 投稿一覧
   button:
     follow: フォロー

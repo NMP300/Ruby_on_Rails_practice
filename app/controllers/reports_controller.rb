@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
 
   def index
     following_users = current_user.following
-    @reports = Report.where(user_id: following_users).or(Report.where(user_id: current_user)).order("created_at DESC").page params[:page]
+    @reports = Report.where(user_id: following_users).or(Report.where(user_id: current_user)).order(created_at: :DESC).page params[:page]
   end
 
   def show
@@ -22,18 +24,18 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params.merge(user_id: current_user.id))
 
     if @report.save
-      redirect_to @report, notice: t('errors.messages.report_was_successfully_created.')
+      redirect_to @report, notice: t("errors.messages.report_was_successfully_created.")
     else
-      render 'reports/new'
+      render :new
     end
   end
 
   def update
     if created_user?
       if @report.update(report_params)
-        redirect_to @report, notice: t('errors.messages.report_was_successfully_updated.')
+        redirect_to @report, notice: t("errors.messages.report_was_successfully_updated.")
       else
-        render 'reports/edit'
+        render :edit
       end
     end
   end
@@ -41,7 +43,7 @@ class ReportsController < ApplicationController
   def destroy
     if created_user?
       @report.destroy
-      redirect_to reports_path, notice: t('errors.messages.report_was_successfully_destroyed.')
+      redirect_to reports_path, notice: t("errors.messages.report_was_successfully_destroyed.")
     end
   end
 
@@ -58,6 +60,6 @@ class ReportsController < ApplicationController
   end
 
   def created_user?
-    current_user.id == @report.user_id
+    current_user == @report.user
   end
 end

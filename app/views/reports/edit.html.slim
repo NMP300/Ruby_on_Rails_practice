@@ -1,7 +1,7 @@
-h1 = "日報編集"
+h1 = t('title.edit_report')
 
 = render 'form'
 
-= link_to "#{t 'link.show'}", @report
+= link_to t('link.show'), @report
 '|
-= link_to "#{t 'link.back'}", reports_path
+= link_to t('link.back'), reports_path

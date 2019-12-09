@@ -1,28 +1,25 @@
-p#notice
-  = notice
-
 h1 = t('title.report_detail')
 
 table.table.table-hover
   tbody
     tr
-      th = t('activerecord.attributes.report.created_user')
+      th = Report.human_attribute_name(:created_user)
       td = link_to @report.user.name, user_path(@report.user_id)
     tr
-      th = t('activerecord.attributes.report.title')
+      th = Report.human_attribute_name(:title)
       td = @report.title
     tr
-      th = t('activerecord.attributes.report.text')
+      th = Report.human_attribute_name(:text)
       td = @report.text
     tr
-      th = t('activerecord.attributes.report.pictures')
+      th = Report.human_attribute_name(:pictures)
       td
         - @report.pictures.each do |picture|
           = image_tag picture if @report.pictures.attached?
 
-= link_to "#{t 'link.edit'}", edit_report_path(@report), class: 'btn btn-primary mr-3'
+= link_to t('link.edit'), edit_report_path(@report), class: 'btn btn-primary mr-3'
 
-= link_to "#{t 'link.back'}", reports_path, class: 'btn btn-primary mr-3'
+= link_to t('link.back'), reports_path, class: 'btn btn-primary mr-3'
 
 = render "comments_list", comments: @report.comments
 
