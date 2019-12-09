@@ -16,4 +16,3 @@ class UsersController < ApplicationController
     @posts.flatten!.sort_by! { |post| post[:created_at] }
   end
 end
-

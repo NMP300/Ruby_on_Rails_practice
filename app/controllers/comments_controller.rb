@@ -9,10 +9,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save
       redirect_to @comment.commentable
-      flash[:notice] = t('errors.messages.Comment_was_successfully_created.')
+      flash[:notice] = t("errors.messages.Comment_was_successfully_created.")
     else
       redirect_to @comment.commentable
-      flash[:notice] = t('errors.messages.Comment_was_failure_created.')
+      flash[:notice] = t("errors.messages.Comment_was_failure_created.")
     end
   end
 
