@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_created_book, only: [:edit, :update, :destroy]
 
   def index
     following_users = current_user.following
@@ -13,6 +13,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book = Book.find_by(params[:id])
     @comments = @book.comments
     @comment = Comment.new
   end
@@ -31,34 +32,29 @@ class BooksController < ApplicationController
   end
 
   def update
-    if created_user?
-      if @book.update(book_params)
-        redirect_to @book, notice: t("errors.messages.Book_was_successfully_updated.")
-      else
-        render :edit
-      end
+    if @book.update(book_params)
+      redirect_to @book, notice: t("errors.messages.Book_was_successfully_updated.")
+    else
+      render :edit
     end
   end
 
   def destroy
-    if created_user?
-      @book.destroy
+    if @book.destroy
       redirect_to books_url, notice: t("errors.messages.Book_was_successfully_destroyed.")
+    else
+      redirect_to @book
     end
   end
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_book
-    @book = Book.find(params[:id])
+  def set_created_book
+    @book = Book.find_by(id: params[:id], user_id: current_user)
   end
 
   def book_params
     params.require(:book).permit(:title, :memo, :author, :picture, :user_id)
-  end
-
-  def created_user?
-    current_user == @book.user
   end
 end

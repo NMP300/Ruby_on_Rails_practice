@@ -17,23 +17,19 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    if created_user?
-      if @comment.update(comment_params)
-        redirect_to @comment.commentable, notice: t("errors.messages.Comment_was_successfully_updated.")
-      else
-        render :edit, notice: t("errors.messages.Comment_was_failure_updated.")
-      end
+    if check_created_user && @comment.update(comment_params)
+      redirect_to @comment.commentable, notice: t("errors.messages.Comment_was_successfully_updated.")
+    else
+      render :edit, notice: t("errors.messages.Comment_was_failure_updated.")
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
-    if created_user?
-      if @comment.destroy
-        redirect_to @comment.commentable, notice: t("errors.messages.Commnet_was_successfully_destroyed.")
-      else
-        redirect_to @comment.commentable, notice: t("errors.messages.Comment_was_failure_destroyed.")
-      end
+    if check_created_user && @comment.destroy
+      redirect_to @comment.commentable, notice: t("errors.messages.Commnet_was_successfully_destroyed.")
+    else
+      redirect_to @comment.commentable, notice: t("errors.messages.Comment_was_failure_destroyed.")
     end
   end
 
@@ -45,7 +41,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:text, :commentable_type, :commentable_id, :user_id)
   end
 
-  def created_user?
+  def check_created_user
     current_user == @comment.user
   end
 end

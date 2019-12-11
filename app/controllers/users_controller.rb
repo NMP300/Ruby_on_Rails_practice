@@ -6,13 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    # 改善点：冗長な記述
     @user = User.find(params[:id])
-    @posts = []
-    @books = Book.where(user_id: @user.id)
-    @reports = Report.where(user_id: @user.id)
-    @posts << @books
-    @posts << @reports
-    @posts.flatten!.sort_by! { |post| post[:created_at] }
+    @posts = Book.where(user_id: @user) + Report.where(user_id: @user)
+    @posts.sort_by! { |post| post[:created_at] }
   end
 end
