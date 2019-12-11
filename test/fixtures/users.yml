@@ -1,0 +1,19 @@
+Taro:
+  email: taro@example.com
+  encrypted_password: password
+  name: Taro Sato
+  postal_code: 0000000
+  address: 日本
+  profile: よろしくお願いします。
+  provider: github
+  uid: 12345
+
+Hanako:
+  email: hanako@example.com
+  encrypted_password: password
+  name: Hanako Sato
+  postal_code: 1111111
+  address: 日本
+  profile: おおお、お願いします
+
+
