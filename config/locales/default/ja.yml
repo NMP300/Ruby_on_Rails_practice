@@ -8,6 +8,8 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       book: 本
+      report: レポート
+      comment: コメント
     attributes:
       book:
         id: ID
@@ -29,6 +31,22 @@ ja:
         password: パスワード
         following: フォロー
         followers: フォロワー
+      report:
+        id: ID
+        title: タイトル
+        new_report: 新規登録
+        text: テキスト
+        pictures: 画像
+        created_user: 投稿者
+      post:
+        category: カテゴリー
+        created_user: 投稿者
+        title: タイトル
+      comment:
+        comment: コメント
+        text: テキスト
+        post_comment: コメントする
+        posted_user: 投稿者
   date:
     abbr_day_names:
       - 日
@@ -158,6 +176,15 @@ ja:
       Book_was_successfully_created: 書籍情報の登録に成功しました
       Book_was_successfully_updated: 書籍情報の更新に成功しました
       Book_was_successfully_destroyed: 書籍情報の削除に成功しました
+      Report_was_successfully_created: レポート情報の登録に成功しました
+      Report_was_successfully_updated: レポート情報の更新に成功しました
+      Report_was_successfully_destroyed: レポート情報の削除に成功しました
+      Comment_was_successfully_created: コメントの登録に成功しました
+      Comment_was_successfully_updated: コメントの更新に成功しました
+      Commnet_was_successfully_destroyed: コメントの削除に成功しました
+      Comment_was_failure_created: コメントの登録に失敗しました
+      Comment_was_failure_updated: コメントの更新に失敗しました
+      Comment_was_failure_destroyed: コメントの削除に失敗しました
     template:
       body: 次の項目を確認してください
       header:
@@ -234,7 +261,7 @@ ja:
   link:
     timeline: タイムライン
     mypage: マイページ
-    new_book: 新規登録
+    new_book: 書籍新規登録
     show: 詳細
     edit: 編集
     destroy: 削除
@@ -245,6 +272,8 @@ ja:
     logout: ログアウト
     sign_up: アカウント登録
     login: ログイン
+    new_report: 日報新規登録
+    reports: 日報一覧
   title:
     timeline: タイムライン
     books: 書籍一覧
@@ -254,6 +283,11 @@ ja:
     all_users: ユーザー一覧
     profile: プロフィール
     edit_profile: プロフィール編集
+    report_detail: 日報詳細
+    reports: 日報一覧
+    new_report: 日報新規登録
+    edit_report: 日報編集
+    posts: 投稿一覧
   button:
     follow: フォロー
     unfollow: フォロー解除

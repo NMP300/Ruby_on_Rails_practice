@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   }
 
   scope "(:locale)", locale: /en|ja/ do
-    resources :books
+    resources :books, :reports do
+      resources :comments
+    end
+
     devise_for :users, skip: :omniauth_callback, controllers: {
         registrations: "users/registrations",
         sessions: "users/sessions",
@@ -18,6 +21,7 @@ Rails.application.routes.draw do
       end
     end
     resources :follows, only: [:create, :destroy]
+    resources :comments
   end
   root to: "books#index"
 end

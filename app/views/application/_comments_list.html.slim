@@ -1,0 +1,15 @@
+.mt-5
+table.table.table-hover
+  thead.thead-default
+    tr
+      th = Comment.human_attribute_name(:posted_user)
+      th = Comment.human_attribute_name(:comment)
+      th colspan='2'
+  tbody
+    - unless comments.nil?
+      - comments.each do |comment|
+        tr
+          td = link_to comment.user.name, user_path
+          td = comment.text
+          td = link_to t("link.edit"), edit_comment_path(comment) if current_user == comment.user
+          td = link_to t("link.destroy"), comment, method: :delete, data: {confirm: t('helpers.submit.are_you_sure')} if current_user == comment.user

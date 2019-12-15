@@ -1,0 +1,26 @@
+h1 = t('title.report_detail')
+
+table.table.table-hover
+  tbody
+    tr
+      th = Report.human_attribute_name(:created_user)
+      td = link_to @report.user.name, user_path(@report.user_id)
+    tr
+      th = Report.human_attribute_name(:title)
+      td = @report.title
+    tr
+      th = Report.human_attribute_name(:text)
+      td = @report.text
+    tr
+      th = Report.human_attribute_name(:pictures)
+      td
+        - @report.pictures.each do |picture|
+          = image_tag picture if @report.pictures.attached?
+
+= link_to t('link.edit'), edit_report_path(@report), class: 'btn btn-primary mr-3'
+
+= link_to t('link.back'), reports_path, class: 'btn btn-primary mr-3'
+
+= render "comments_list", comments: @report.comments
+
+= render "comment_form", commentable: @report, comment: Comment.new

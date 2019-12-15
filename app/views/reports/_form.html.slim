@@ -1,0 +1,19 @@
+= form_with(model: @report, local: true) do |form|
+
+  = render "error_template_header", model: @report
+
+  .form-group
+    = form.label :title
+    = form.text_field :title, class: 'form-control'
+
+  .form-group
+    = form.label :text
+    = form.text_area :text, class: 'form-control'
+
+  .form-group
+    = form.label :pictures
+    div
+    = form.file_field :pictures
+
+  .actions
+    = form.submit nil, class: 'btn btn-primary mr-3'

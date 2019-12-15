@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
-class Book < ApplicationRecord
-  mount_uploader :picture, PictureUploader
-
-  validates :title, presence: true
-
+class Report < ApplicationRecord
   belongs_to :user
+  has_many_attached :pictures
+  validates :title, presence: true
   has_many :comments, as: :commentable,
            dependent: :destroy
 end

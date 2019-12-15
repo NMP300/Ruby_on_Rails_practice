@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @books = Book.where(user_id: @user.id).page params[:page]
+    @posts = Book.where(user_id: @user) + Report.where(user_id: @user)
+    @posts.sort_by! { |post| post[:created_at] }
   end
 end
