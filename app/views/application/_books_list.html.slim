@@ -16,7 +16,7 @@ table.table.table-hover
         td = link_to book.user.name ,user_path(book.user_id)
         td = book.title
         td = book.author
-        td = book.picture
+        td = image_tag(book.picture_url) if book.picture.present?
         td = link_to t('link.show'), book
         / 改善点：同じif文を2回使っている
         td = link_to t('link.edit'), edit_book_path(book) if current_user == book.user

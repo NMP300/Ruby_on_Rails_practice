@@ -33,6 +33,9 @@ class User < ApplicationRecord
   has_many :books,
            foreign_key: "user_id",
            dependent: :destroy
+  has_many :reports,
+           foreign_key: "user_id",
+           dependent: :destroy
   has_one_attached :icon
   has_many :active_follows, class_name: "Follow",
            foreign_key: "follower_id",
