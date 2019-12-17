@@ -43,7 +43,7 @@ class ReportsTest < ApplicationSystemTestCase
 
     click_button I18n.t("helpers.submit.update")
 
-    assert_text I18n.t('successfully.Report_was_successfully_updated.')
+    assert_text I18n.t("successfully.Report_was_successfully_updated.")
   end
 
   test "作成済みの日報を削除することができる" do

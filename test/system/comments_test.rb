@@ -50,7 +50,7 @@ class CommentsTest < ApplicationSystemTestCase
 
     click_button I18n.t("activerecord.attributes.comment.post_comment")
 
-    assert_text I18n.t('successfully.Comment_was_successfully_updated.')
+    assert_text I18n.t("successfully.Comment_was_successfully_updated.")
   end
 
   test "日報のコメントを編集することができる" do
@@ -60,7 +60,7 @@ class CommentsTest < ApplicationSystemTestCase
 
     click_button I18n.t("activerecord.attributes.comment.post_comment")
 
-    assert_text I18n.t('successfully.Comment_was_successfully_updated.')
+    assert_text I18n.t("successfully.Comment_was_successfully_updated.")
   end
 
   test "書籍のコメント削除することができる" do

@@ -50,9 +50,9 @@ class UsersTest < ApplicationSystemTestCase
 
     attach_file I18n.t("activerecord.attributes.user.icon"), "#{Rails.root.join('test/fixtures/images/users/user2.jpeg')}"
 
-    click_button I18n.t('devise.registrations.edit.update')
+    click_button I18n.t("devise.registrations.edit.update")
 
-    assert_text I18n.t('devise.registrations.updated')
+    assert_text I18n.t("devise.registrations.updated")
   end
 
   test "ログインしているユーザーを削除することができる" do
