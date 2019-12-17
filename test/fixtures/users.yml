@@ -1,6 +1,6 @@
 Taro:
   email: taro@example.com
-  encrypted_password: password
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   name: Taro Sato
   postal_code: 0000000
   address: 日本
@@ -10,10 +10,18 @@ Taro:
 
 Hanako:
   email: hanako@example.com
-  encrypted_password: password
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   name: Hanako Sato
   postal_code: 1111111
   address: 日本
   profile: おおお、お願いします
+
+Ichiro:
+  email: ichiro@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  name: Ichiro Suzuki
+  postal_code: 1111111
+  address: 日本
+  profile: よろしく
 
 

@@ -16,13 +16,13 @@ class UserTest < ActiveSupport::TestCase
 
   test "user1がuser2をフォローすることができる" do
     @user1.follow(@user2)
-    assert [@user2] == @user1.following
+    assert_includes(@user1.following, @user2)
   end
 
   test "user1がuser2をフォローしている時、user2のフォローを解除することができる" do
     @user1.follow(@user2)
     @user1.unfollow(@user2)
-    assert_no_match @user2, @user1.following
+    assert_not_includes(@user1.following, @user2)
   end
 
   test "user1がuser2をフォローしている時、user1のfollowingの中にuser2がいることを確認できる" do

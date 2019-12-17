@@ -1,0 +1,9 @@
+comment1:
+  text: 確かに、良い本
+  commentable: book1(Book)
+  user: Taro
+
+comment2:
+  text: よく頑張った
+  commentable: report1(Report)
+  user: Taro
