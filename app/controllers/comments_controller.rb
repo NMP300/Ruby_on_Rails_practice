@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  before_action :set_created_user, only: [:edit, :update, :destroy]
+
   def edit
     @comment = Comment.find(params[:id])
     @commentable = @comment.commentable
@@ -9,7 +11,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to @comment.commentable, notice: t("errors.messages.Comment_was_successfully_created.")
+      redirect_to @comment.commentable, notice: t("successfully.Comment_was_successfully_created.")
     else
       redirect_to @comment.commentable, notice: t("errors.messages.Comment_was_failure_created.")
     end
@@ -17,8 +19,8 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    if check_created_user && @comment.update(comment_params)
-      redirect_to @comment.commentable, notice: t("errors.messages.Comment_was_successfully_updated.")
+    if @comment.update(comment_params)
+      redirect_to @comment.commentable, notice: t("successfully.Comment_was_successfully_updated.")
     else
       render :edit, notice: t("errors.messages.Comment_was_failure_updated.")
     end
@@ -26,8 +28,8 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    if check_created_user && @comment.destroy
-      redirect_to @comment.commentable, notice: t("errors.messages.Commnet_was_successfully_destroyed.")
+    if @comment.destroy
+      redirect_to @comment.commentable, notice: t("successfully.Commnet_was_successfully_destroyed.")
     else
       redirect_to @comment.commentable, notice: t("errors.messages.Comment_was_failure_destroyed.")
     end
@@ -41,7 +43,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:text, :commentable_type, :commentable_id, :user_id)
   end
 
-  def check_created_user
-    current_user == @comment.user
+  def set_created_user
+    @comment = Comment.find_by(id: params[:id], user_id: current_user)
   end
 end

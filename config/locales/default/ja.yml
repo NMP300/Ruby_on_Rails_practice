@@ -173,15 +173,12 @@ ja:
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
-      Book_was_successfully_created: 書籍情報の登録に成功しました
-      Book_was_successfully_updated: 書籍情報の更新に成功しました
-      Book_was_successfully_destroyed: 書籍情報の削除に成功しました
-      Report_was_successfully_created: レポート情報の登録に成功しました
-      Report_was_successfully_updated: レポート情報の更新に成功しました
-      Report_was_successfully_destroyed: レポート情報の削除に成功しました
-      Comment_was_successfully_created: コメントの登録に成功しました
-      Comment_was_successfully_updated: コメントの更新に成功しました
-      Commnet_was_successfully_destroyed: コメントの削除に成功しました
+      Book_was_failuer_created: 書籍の登録に失敗しました
+      Book_was_failuer_updated: 書籍の更新に失敗しました
+      Book_was_failuer_destroyed: 書籍の削除に失敗しました
+      Report_was_failuer_created: 日報の登録に失敗しました
+      Report_was_failuer_update: 日報の更新に失敗しました
+      Report_was_failuer_destroyed: 日報の削除に失敗しました
       Comment_was_failure_created: コメントの登録に失敗しました
       Comment_was_failure_updated: コメントの更新に失敗しました
       Comment_was_failure_destroyed: コメントの削除に失敗しました
@@ -190,6 +187,16 @@ ja:
       header:
         one: "%{model}にエラーが発生しました"
         other: "%{model}に%{count}個のエラーが発生しました"
+  successfully:
+    Book_was_successfully_created: 書籍情報の登録に成功しました
+    Book_was_successfully_updated: 書籍情報の更新に成功しました
+    Book_was_successfully_destroyed: 書籍情報の削除に成功しました
+    Report_was_successfully_created: レポート情報の登録に成功しました
+    Report_was_successfully_updated: レポート情報の更新に成功しました
+    Report_was_successfully_destroyed: レポート情報の削除に成功しました
+    Comment_was_successfully_created: コメントの登録に成功しました
+    Comment_was_successfully_updated: コメントの更新に成功しました
+    Commnet_was_successfully_destroyed: コメントの削除に成功しました
   helpers:
     select:
       prompt: 選択してください

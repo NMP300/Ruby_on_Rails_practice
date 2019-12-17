@@ -25,25 +25,25 @@ class BooksController < ApplicationController
     @book = Book.new(book_params.merge(user_id: current_user.id))
 
     if @book.save
-      redirect_to @book, notice: t("errors.messages.Book_was_successfully_created.")
+      redirect_to @book, notice: t("successfully.Book_was_successfully_created.")
     else
-      render :new
+      render :new, notice: t("errors.messages.Book_was_failuer_created.")
     end
   end
 
   def update
     if @book.update(book_params)
-      redirect_to @book, notice: t("errors.messages.Book_was_successfully_updated.")
+      redirect_to @book, notice: t("successfully.Book_was_successfully_updated.")
     else
-      render :edit
+      render :edit, notice: t("errors.messages.Book_was_failuer_updated.")
     end
   end
 
   def destroy
     if @book.destroy
-      redirect_to books_url, notice: t("errors.messages.Book_was_successfully_destroyed.")
+      redirect_to books_url, notice: t("successfully.Book_was_successfully_destroyed.")
     else
-      redirect_to @book
+      redirect_to @book, notice: t("errors.messages.Book_was_failuer_destroyed.")
     end
   end
 

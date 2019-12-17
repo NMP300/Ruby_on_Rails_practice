@@ -179,6 +179,21 @@ en:
       wrong_length:
         one: is the wrong length (should be 1 character)
         other: is the wrong length (should be %{count} characters)
+      Book_was_failuer_created: Book was failuer created.
+      Book_was_failuer_updated: Book was failuer updated.
+      Book_was_failuer_destroyed: Book was failuer destroyed.
+      Report_was_failuer_created: Report was failuer created.
+      Report_was_failuer_update: Report was failuer updated.
+      Report_was_failuer_destroyed: Report was failuer destroyed.
+      Comment_was_failure_created: Comment was failure created
+      Comment_was_failure_updated: Comment was failure updated
+      Comment_was_failure_destroyed: Comment was failure destroyed
+    template:
+      body: 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: "%{count} errors prohibited this %{model} from being saved"
+    successfully:
       Book_was_successfully_created: Book was successfully created
       Book_was_successfully_updated: Book was successfully updated
       Book_was_successfully_destroyed: Book was successfully destroyed
@@ -188,14 +203,6 @@ en:
       Comment_was_successfully_created: Comment was successfully created
       Comment_was_successfully_updated: Comment was successfully updated
       Commnet_was_successfully_destroyed: Comment was successfully destroyed
-      Comment_was_failure_created: Comment was failure created
-      Comment_was_failure_updated: Comment was failure updated
-      Comment_was_failure_destroyed: Comment was failure destroyed
-    template:
-      body: 'There were problems with the following fields:'
-      header:
-        one: 1 error prohibited this %{model} from being saved
-        other: "%{count} errors prohibited this %{model} from being saved"
   helpers:
     select:
       prompt: Please select

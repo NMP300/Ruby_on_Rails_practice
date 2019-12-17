@@ -24,25 +24,25 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params.merge(user_id: current_user.id))
     if @report.save
-      redirect_to @report, notice: t("errors.messages.report_was_successfully_created.")
+      redirect_to @report, notice: t("successfully.Report_was_successfully_created.")
     else
-      render :new
+      render :new, notice: t("errors.messages.Report_was_failuer_created.")
     end
   end
 
   def update
     if @report.update(report_params)
-      redirect_to @report, notice: t("errors.messages.report_was_successfully_updated.")
+      redirect_to @report, notice: t("successfully.Report_was_successfully_updated.")
     else
-      render :edit
+      render :edit, notice: t("errors.messages.Report_was_failuer_updated.")
     end
   end
 
   def destroy
     if @report.destroy
-      redirect_to reports_path, notice: t("errors.messages.report_was_successfully_destroyed.")
+      redirect_to reports_path, notice: t("successfully.Report_was_successfully_destroyed.")
     else
-      redirect_to @report
+      redirect_to @report, notice: t("errors.messages.Report_was_failuer_destroyed.")
     end
   end
 
