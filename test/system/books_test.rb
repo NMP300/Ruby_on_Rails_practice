@@ -22,7 +22,7 @@ class BooksTest < ApplicationSystemTestCase
     fill_in I18n.t("activerecord.attributes.book.title"), with: "ジェネラルルージュの凱旋"
     fill_in I18n.t("activerecord.attributes.book.memo"), with: "熱い本だった"
     fill_in I18n.t("activerecord.attributes.book.author"), with: "海堂尊"
-    attach_file I18n.t("activerecord.attributes.book.picture"), "#{Rails.root.join('test/fixtures/images/book1.jpeg')}"
+    attach_file I18n.t("activerecord.attributes.book.picture"), "#{Rails.root.join('test/fixtures/images/books/book1.jpeg')}"
 
     assert_difference "Book.count", 1 do
       click_button I18n.t("helpers.submit.create")
