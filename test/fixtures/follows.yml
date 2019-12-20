@@ -1,0 +1,11 @@
+follow1:
+  follower: Taro
+  followed: Ichiro
+
+follow2:
+  follower: Ichiro
+  followed: Hanako
+
+follow3:
+  follower: Hanako
+  followed: Taro
