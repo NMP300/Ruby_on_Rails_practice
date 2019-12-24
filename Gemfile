@@ -36,7 +36,7 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "factory_bot_rails", "~> 4.11"
   gem "ruby-debug-ide"
-  gem "debase"
+  gem "debase", "~> 0.2.4.1"
   gem "faker"
 end
 
