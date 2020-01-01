@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.2"
-require 'capistrano/rails'
+require "capistrano/rails"
 
 set :application, "Ruby_on_Rails_practice"
 set :repo_url, "git@github.com:NMP300/Ruby_on_Rails_practice.git"
@@ -39,9 +41,9 @@ set :deploy_to, "/home/kohei/nmpbooksapp.work/books_app"
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 #
-set :rbenv_ruby_version, '2.6.3'
-set :rbenv_path, '/home/kohei/.rbenv'
-set :bundle_path, './vendor/bundle'
+set :rbenv_ruby_version, "2.6.3"
+set :rbenv_path, "/home/kohei/.rbenv"
+set :bundle_path, "./vendor/bundle"
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
 append :linked_files, "config/master.key"
