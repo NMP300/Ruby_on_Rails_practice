@@ -49,6 +49,11 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "html2slim"
   gem "dotenv-rails"
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano-rails", "~> 1.3", require: false
+  gem "ed25519", ">= 1.2", "< 2.0"
+  gem "bcrypt_pbkdf", ">= 1.0", "< 2.0"
+  gem "capistrano-rbenv"
 end
 
 group :test do
