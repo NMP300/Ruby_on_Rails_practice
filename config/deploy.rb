@@ -9,7 +9,7 @@ set :repo_url, "git@github.com:NMP300/Ruby_on_Rails_practice.git"
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/"#{fetch :application}"
-set :deploy_to, "/home/kohei/my_web_apps/books_app"
+set :deploy_to, "/home/kohei/nmpbooksapp.work/books_app"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
