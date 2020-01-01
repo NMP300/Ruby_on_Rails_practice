@@ -41,9 +41,16 @@ set :deploy_to, "/home/kohei/nmpbooksapp.work/books_app"
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 #
+set :rbenv_ruby, "2.6.3"
 set :rbenv_ruby_version, "2.6.3"
 set :rbenv_path, "/home/kohei/.rbenv"
 set :bundle_path, "./vendor/bundle"
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
 append :linked_files, "config/master.key"
+
+task :restart do
+  on roles(:app) do
+    execute "nohup bin/rails s -e production &"
+  end
+end
