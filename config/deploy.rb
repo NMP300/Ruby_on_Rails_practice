@@ -4,7 +4,7 @@
 lock "~> 3.11.2"
 require "capistrano/rails"
 
-set :application, "Ruby_on_Rails_practice"
+set :application, "books_app"
 set :repo_url, "git@github.com:NMP300/Ruby_on_Rails_practice.git"
 
 # Default branch is :master
@@ -48,9 +48,19 @@ set :bundle_path, "./vendor/bundle"
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
 append :linked_files, "config/master.key"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
-task :restart do
+desc "Initial Deploy"
+task :initial do
   on roles(:app) do
-    execute "nohup bin/rails s -e production &"
+    before 'deploy:restart', 'puma:start'
+    invoke 'deploy'
+  end
+end
+
+desc "Restart Application"
+task :restart do
+  on roles(:app), in: :sequence, wait: 5 do
+    invoke 'puma:restart'
   end
 end

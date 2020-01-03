@@ -40,3 +40,6 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 plugin :tmp_restart
 
 bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
+pidfile "#{Rails.root}/tmp/pids/puma.pid"
+state_path "#{Rails.root}/tmp/pids/puma.state"
+stdout_redirect "#{Rails.root}/log/puma.stdout.log", "#{Rails.root}/log/puma.stderr.log", true
