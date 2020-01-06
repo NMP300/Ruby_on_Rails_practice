@@ -71,6 +71,7 @@ jobs:
   deploy:
     executor: default
     steps:
+      - checkout
       - run:
           name: deploy
           command: bundle exec cap production deploy
