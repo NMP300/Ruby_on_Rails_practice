@@ -1,22 +1,21 @@
 version: 2.1
-jobs:
-  build:
+executors:
+  default:
     working_directory: ~/circleci-books-app
     docker:
       - image: circleci/ruby:2.6.3-node-browsers
         environment:
           BUNDLE_PATH: vendor/bundle
-          PGHOST: 127.0.0.1
           PGUSER: circleci-books_app
-          RAILS_ENV: test
       - image: circleci/postgres:11-alpine
         environment:
           POSTGRES_USER: circleci-books-app
           POSTGRES_DB: books-app
 
+commands:
+  set_up:
     steps:
       - checkout
-
       - restore_cache:
           keys:
             - gem-cache-v1-{{ checksum "Gemfile.lock" }}
@@ -49,6 +48,14 @@ jobs:
           paths:
             - ~/.cache/yarn
 
+jobs:
+  minitest:
+    executor: default
+    environment:
+      RAILS_ENV = test
+    steps:
+      - checkout
+      - set_up
       - run:
           name: Database setup
           command: bin/rails db:schema:load
@@ -56,3 +63,29 @@ jobs:
       - run:
           name: Run test
           command: bin/rails test
+
+  deploy:
+    executor: default
+    steps:
+      - checkout
+      - set_up
+      - add_ssh_keys:
+          fingerprints:
+            - "0b:4c:2f:38:43:f7:33:3b:13:5e:87:9d:1b:75:59:ad"
+      - run:
+          name: deploy
+          command: bundle exec cap production deploy
+
+workflows:
+  minitest-deploy:
+    jobs:
+      - minitest:
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - minitest
+          filters:
+            branches:
+              only: master
