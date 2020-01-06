@@ -59,6 +59,7 @@ jobs:
     environment:
       RAILS_ENV = test
     steps:
+      - checkout
       - run:
           name: Database setup
           command: bin/rails db:schema:load
