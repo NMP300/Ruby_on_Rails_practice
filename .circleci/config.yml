@@ -1,19 +1,20 @@
 version: 2.1
-jobs:
-  build:
+executors:
+  default:
     working_directory: ~/circleci-books-app
     docker:
       - image: circleci/ruby:2.6.3-node-browsers
         environment:
           BUNDLE_PATH: vendor/bundle
-          PGHOST: 127.0.0.1
           PGUSER: circleci-books_app
-          RAILS_ENV: test
       - image: circleci/postgres:11-alpine
         environment:
           POSTGRES_USER: circleci-books-app
           POSTGRES_DB: books-app
 
+jobs:
+  build:
+    executor: default
     steps:
       - checkout
 
@@ -49,6 +50,15 @@ jobs:
           paths:
             - ~/.cache/yarn
 
+      - add_ssh_keys:
+          fingerprints:
+            - "6d:d8:b3:ca:12:5f:ea:18:fa:6b:50:7d:d9:7e:d3:48"
+
+  minitest:
+    executor: default
+    environment:
+      RAILS_ENV = test
+    steps:
       - run:
           name: Database setup
           command: bin/rails db:schema:load
@@ -56,3 +66,30 @@ jobs:
       - run:
           name: Run test
           command: bin/rails test
+
+  deploy:
+    executor: default
+    steps:
+      - run:
+          name: deploy
+          command: bundle exec cap production deploy
+
+workflows:
+  build-minitest-and-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+      - minitest:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - minitest
+          filters:
+            branches:
+              only: master
