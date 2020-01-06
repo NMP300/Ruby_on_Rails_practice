@@ -71,7 +71,7 @@ jobs:
       - set_up
       - add_ssh_keys:
           fingerprints:
-            - "6d:d8:b3:ca:12:5f:ea:18:fa:6b:50:7d:d9:7e:d3:48"
+            - "0b:4c:2f:38:43:f7:33:3b:13:5e:87:9d:1b:75:59:ad"
       - run:
           name: deploy
           command: bundle exec cap production deploy
