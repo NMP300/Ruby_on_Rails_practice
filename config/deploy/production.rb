@@ -53,7 +53,7 @@ server "153.126.166.203",
        roles: "books_app",
        ssh_options: {
            user: "kohei", # overrides user setting above
-           port: 62222,
+           port: 62321,
            keys: %w(~/.ssh/id_rsa),
            forward_agent: true,
            # password: "please use keys"

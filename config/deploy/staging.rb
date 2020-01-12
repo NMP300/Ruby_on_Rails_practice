@@ -54,6 +54,6 @@ server "nmpbooksapp.work",
            user: "kohei", # overrides user setting above
            keys: %w(/home/kohei/.ssh/id_rsa),
            forward_agent: false,
-           auth_methods: %w(publickey password)
+           auth_methods: %w(publickey)
            # password: "please use keys"
        }
